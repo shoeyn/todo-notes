@@ -1,0 +1,45 @@
+{
+  "name": "todonotes",
+  "version": "1.0.0",
+  "description": "Secure Todo and Note-taking application with macOS Keychain AES-256-GCM encryption, global spotlight shortcut, and MCP server.",
+  "main": "dist/main/index.js",
+  "type": "module",
+  "bin": {
+    "todonotes-mcp": "./dist/mcp/server.js"
+  },
+  "scripts": {
+    "dev:renderer": "vite",
+    "dev:main": "tsc -p tsconfig.main.json --watch",
+    "build:renderer": "vite build",
+    "build:main": "tsc -p tsconfig.main.json",
+    "build:mcp": "tsc -p tsconfig.mcp.json",
+    "build": "pnpm run build:renderer && pnpm run build:main && pnpm run build:mcp",
+    "test": "vitest run",
+    "start": "electron ."
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.6.1",
+    "better-sqlite3": "^11.8.1",
+    "clsx": "^2.1.1",
+    "electron-store": "^10.0.0",
+    "keytar": "^7.9.0",
+    "lucide-react": "^0.475.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.12",
+    "@types/node": "^24.18.0",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "electron": "^34.2.0",
+    "postcss": "^8.5.1",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.3",
+    "vite": "^6.1.0",
+    "vitest": "^3.0.5"
+  }
+}
